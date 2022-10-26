@@ -6,6 +6,12 @@ class DirectorsController < ApplicationController
   end
 
   def wisest
-    render({ :template => })
+    @oldest = Director.where.not({:dob => nil }).order({ :dob => :asc })[0]
+    render({ :template => "directors_template/eldest.html.erb"})
+  end
+
+  def youngest
+    @youngest = Director.where.not({:dob => nil }).order({ :dob => :desc })[0]
+    render({ :template => "directors_template/youngest.html.erb"})
   end
 end
