@@ -50,3 +50,37 @@
 </dl>
 
 <hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+<% @filmography.each do |film|%>
+  <tr>
+  <td>
+    <%=film.id%>
+  </td>
+
+  <td>
+    <img src="http://robohash.org/<%=film.image%>?set=set4">
+  </td>
+
+  <td>
+    <%=film.title%>
+  </td>
+
+  <td>
+    <%=film.year%>
+  </td>
+
+  <td>
+    <%=Director.where({:id => film.director_id})[0].name%>
+  </td>
+
+  <td>
+    <a href="">Show details</a>
+  </td>
+  </tr>
+<%end%>
+</table>
+
+ID, Image, Title, Year, Director, Details

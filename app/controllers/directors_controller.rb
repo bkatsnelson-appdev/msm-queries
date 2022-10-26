@@ -18,6 +18,7 @@ class DirectorsController < ApplicationController
   def director_details
     @id = params["an_id"]
     @director = Director.where({:id => @id })[0]
+    @filmography = Movie.where({:director_id => @id})
     render({ :template => "directors_template/show.html.erb"})
   end
 end
