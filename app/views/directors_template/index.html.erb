@@ -1,0 +1,9 @@
+<h1>List of all directors</h1>
+
+<% Director.all.each do |thing| %>
+  <li>
+    <%= thing.name %>, 
+    <%= thing.dob %>,
+    <%= thing.bio %>
+  </li>
+<%end%>
